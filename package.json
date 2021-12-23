@@ -1,14 +1,12 @@
 {
-  "name": "react-from-scratch",
-  "version": "1.0.0",
+  "name": "correct-frequency-random-letters",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "webpack serve --config webpack.config.js",
-    "build": "webpack",
-    "build-and-start": "webpack && serve -s dist",
-    "update": "npx npm-check-updates -u && npm install && npm test"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +26,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    
+    "lodash": "^4.17.21"
   },
   "jest": {
     "testEnvironment": "jsdom",
