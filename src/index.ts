@@ -1,27 +1,39 @@
 //https://en.wikipedia.org/wiki/Letter_frequency
 import _ from "lodash";
 
-class RandomPercentageGenerator {
-  Random() {
+export enum FrequencyType {
+  Text = 1,
+  Dictionary,
+}
+
+export interface IRandomNumberGenerator {
+  Random(): number;
+}
+
+class RandomPercentageGenerator implements IRandomNumberGenerator {
+  Random(): number {
     return _.random(100000) / 1000;
   }
 }
 
 class Letter {
-  CumulativeFrequency;
-  Letter;
-  TextFrequency;
-  DictionaryFrequency;
+  public CumulativeFrequency: number;
+
+  constructor(
+    public Letter: string,
+    public TextFrequency: number,
+    public DictionaryFrequency: number
+  ) {}
 }
 
 class LetterFrequency {
   
-  _letters;
-  _randomNumberGenerator;
+  private _letters: Array<Letter>;
+  private _randomNumberGenerator: IRandomNumberGenerator;
 
   constructor(
-    Type,
-    randomNumberGenerator
+    public Type: FrequencyType,
+    randomNumberGenerator: IRandomNumberGenerator | undefined = undefined
   ) {
     this._randomNumberGenerator =
       randomNumberGenerator || new RandomPercentageGenerator();
@@ -71,9 +83,9 @@ class LetterFrequency {
       });
   }
 
-  random = () => {
-    const rnd = this._randomNumberGenerator.Random();
-    return this._letters.slice(0).reverse().reduce((acc, current) => {
+  random = (): string => {
+    const rnd: number = this._randomNumberGenerator.Random();
+    return this._letters.slice(0).reverse().reduce((acc: string, current: Letter) => {
       if (rnd <= current.CumulativeFrequency) {
         acc = current.Letter;
       }
