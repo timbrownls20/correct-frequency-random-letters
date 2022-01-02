@@ -18,6 +18,11 @@ class RandomPercentageGenerator implements IRandomNumberGenerator {
 
 class LetterFrequency {
   private _randomNumberGenerator: IRandomNumberGenerator;
+  //private _letterFrequency: Array<Letter>; 
+
+  get LetterData() : Array<Letter> {
+    return LetterData;
+  }
 
   constructor(
     public Type: FrequencyType,

@@ -1,4 +1,5 @@
 import { DictionaryFrequency, TextFrequency, IRandomNumberGenerator } from ".";
+import LetterData from "./frequency/data/en-GB";
 
 class MockRandom implements IRandomNumberGenerator {
   Random(): number {
