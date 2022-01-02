@@ -1,5 +1,4 @@
 import { DictionaryFrequency, TextFrequency, IRandomNumberGenerator } from ".";
-import LetterData from "./frequency/data/en-GB";
 
 class MockRandom implements IRandomNumberGenerator {
   Random(): number {
@@ -14,6 +13,9 @@ describe("Dictionary frequencies", () => {
     const textFrequencies = new DictionaryFrequency();
     const letter = textFrequencies.random();
     expect(letter).toMatch(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/);
+
+    console.log(textFrequencies.Frequencies)
+
   });
 
   test("cumulative frequency 0 should be A", () => {
@@ -45,6 +47,9 @@ describe("Text frequencies", () => {
     test("should be a letter", () => {
       const textFrequencies = new TextFrequency();
       const letter = textFrequencies.random();
+
+      console.log(textFrequencies.Frequencies)
+
       expect(letter).toMatch(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/);
     });
   

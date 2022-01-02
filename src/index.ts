@@ -16,12 +16,17 @@ class RandomPercentageGenerator implements IRandomNumberGenerator {
   }
 }
 
+interface ICumulativeFrequency {
+  Letter: string;
+  CumulativeFrequency: number;
+}
+
 class LetterFrequency {
   private _randomNumberGenerator: IRandomNumberGenerator;
-  //private _letterFrequency: Array<Letter>; 
+  private _frequencies: Array<ICumulativeFrequency>;
 
-  get LetterData() : Array<Letter> {
-    return LetterData;
+  get Frequencies(): Array<ICumulativeFrequency> {
+    return this._frequencies;
   }
 
   constructor(
@@ -31,26 +36,33 @@ class LetterFrequency {
     this._randomNumberGenerator =
       randomNumberGenerator || new RandomPercentageGenerator();
     let cumulativeFrequency = 100;
-    LetterData.slice(0)
+    this._frequencies = LetterData.slice(0)
       .reverse()
-      .map((e) => {
-        e.CumulativeFrequency = cumulativeFrequency;
+      .map((e: Letter) => {
         const frequency =
           Type == FrequencyType.Dictionary
             ? e.DictionaryFrequency
             : e.TextFrequency;
+
+        const letter = {
+          Letter: e.Letter,
+          CumulativeFrequency: cumulativeFrequency,
+        };
+
+        //.. calculate for next letter
         cumulativeFrequency =
           Math.round(
             (cumulativeFrequency - frequency + Number.EPSILON) * 1000
           ) / 1000;
+
+        return letter;
       });
   }
 
   random = (): string => {
     const rnd: number = this._randomNumberGenerator.Random();
-    return LetterData.slice(0)
-      .reverse()
-      .reduce((acc: string, current: Letter) => {
+    return this._frequencies
+      .reduce((acc: string, current: ICumulativeFrequency) => {
         if (rnd <= current.CumulativeFrequency) {
           acc = current.Letter;
         }
