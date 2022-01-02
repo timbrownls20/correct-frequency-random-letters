@@ -1,4 +1,5 @@
-import LetterFrequency,{ FrequencyType, IRandomNumberGenerator} from '.'
+import LetterFrequency,{ IRandomNumberGenerator} from '.'
+import FrequencyType from './frequency/FrequencyType';
 
 class MockRandom implements IRandomNumberGenerator {
 
