@@ -25,7 +25,7 @@ class LetterFrequency {
   private _randomNumberGenerator: IRandomNumberGenerator;
   private _frequencies: Array<ICumulativeFrequency>;
 
-  public get Frequencies(): Array<ICumulativeFrequency> {
+  public get frequencies(): Array<ICumulativeFrequency> {
     return this._frequencies.slice(0).reverse();
   }
 

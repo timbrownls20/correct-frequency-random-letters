@@ -14,7 +14,7 @@ describe("Dictionary frequencies", () => {
     const letter = textFrequencies.random();
     expect(letter).toMatch(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/);
 
-    console.log(textFrequencies.Frequencies)
+    console.log(textFrequencies.frequencies)
 
   });
 
@@ -48,7 +48,7 @@ describe("Text frequencies", () => {
       const textFrequencies = new TextFrequency();
       const letter = textFrequencies.random();
 
-      console.log(textFrequencies.Frequencies)
+      console.log(textFrequencies.frequencies)
 
       expect(letter).toMatch(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/);
     });
