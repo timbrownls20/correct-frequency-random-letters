@@ -26,7 +26,7 @@ class LetterFrequency {
   private _frequencies: Array<ICumulativeFrequency>;
 
   public get Frequencies(): Array<ICumulativeFrequency> {
-    return this._frequencies;
+    return this._frequencies.slice(0).reverse();
   }
 
   constructor(
