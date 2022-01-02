@@ -25,12 +25,12 @@ class LetterFrequency {
   private _randomNumberGenerator: IRandomNumberGenerator;
   private _frequencies: Array<ICumulativeFrequency>;
 
-  get Frequencies(): Array<ICumulativeFrequency> {
+  public get Frequencies(): Array<ICumulativeFrequency> {
     return this._frequencies;
   }
 
   constructor(
-    public Type: FrequencyType,
+    type: FrequencyType,
     randomNumberGenerator: IRandomNumberGenerator | undefined = undefined
   ) {
     this._randomNumberGenerator =
@@ -40,7 +40,7 @@ class LetterFrequency {
       .reverse()
       .map((e: Letter) => {
         const frequency =
-          Type == FrequencyType.Dictionary
+          type == FrequencyType.Dictionary
             ? e.DictionaryFrequency
             : e.TextFrequency;
 
