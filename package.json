@@ -1,6 +1,6 @@
 {
   "name": "correct-frequency-random-letters",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "gets random letters in the correct frequency as in the english dictionary or a sample of english text",
   "homepage": "https://github.com/timbrownls20/correct-frequency-random-letters",
   "keywords": [
