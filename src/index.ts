@@ -54,4 +54,18 @@ class LetterFrequency {
   };
 }
 
-export default LetterFrequency;
+export class DictionaryFrequency extends LetterFrequency {
+  constructor(
+    randomNumberGenerator: IRandomNumberGenerator | undefined = undefined
+  ) {
+    super(FrequencyType.Dictionary, randomNumberGenerator);
+  }
+}
+
+export class TextFrequency extends LetterFrequency {
+  constructor(
+    randomNumberGenerator: IRandomNumberGenerator | undefined = undefined
+  ) {
+    super(FrequencyType.Text, randomNumberGenerator);
+  }
+}
