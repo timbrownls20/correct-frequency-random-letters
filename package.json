@@ -1,8 +1,8 @@
 {
   "name": "correct-frequency-random-letters",
-  "version": "0.4.2",
+  "version": "1.0.0",
   "description": "gets random letters in the correct frequency as in the english dictionary or a sample of english text",
-  "homepage": "https://codebuckets.com/category/projects/",
+  "homepage": "https://codebuckets.com/2022/01/03/correct-frequency-random-letter-generator-npm-package/",
   "keywords": [
     "letters",
     "random",
